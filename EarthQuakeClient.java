@@ -10,7 +10,11 @@ public class EarthQuakeClient {
     double magMin) {
         ArrayList<QuakeEntry> answer = new ArrayList<QuakeEntry>();
         // TODO
-
+        for (QuakeEntry qe : quakeData){
+            if (qe.getMagnitude() > magMin){
+                answer.add(qe);
+            }
+        }
         return answer;
     }
 
@@ -19,7 +23,11 @@ public class EarthQuakeClient {
     Location from) {
         ArrayList<QuakeEntry> answer = new ArrayList<QuakeEntry>();
         // TODO
-
+        for (QuakeEntry qe : quakeData){
+            if (qe.getLocation() > distMax){
+                answer.add(qe);
+            }
+        }
         return answer;
     }
 
