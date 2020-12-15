@@ -4,7 +4,18 @@ public class ClosestQuakes {
     public ArrayList<QuakeEntry> getClosest(ArrayList<QuakeEntry> quakeData, Location current, int howMany) {
         ArrayList<QuakeEntry> ret = new ArrayList<QuakeEntry>();
         // TO DO
-
+        for (int j = 0; j < howMany; j++){
+            int minIndex = 0;
+            for (int k = 0; k < copy.size(); k++){
+                QuakeEntry qe = copy.get(k);
+                Location loc = qe.getLocation();
+                if (loc.distanceTo(current) < copy.get(minIndex).getLocation().distanceTo(current)){
+                    minIndex = k;
+                }
+            }
+            ret.add(copy.get(minIndex));
+            copy.remove(minIndex); //make sure never find it again
+        }
         return ret;
     }
 
